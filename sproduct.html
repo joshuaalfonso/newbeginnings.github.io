@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Beginnings</title>
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="icon" type="image/x-icon" href="img/nb.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+    <header>
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <a href="index.html" class="logo"><span style="color: #f4a460;">New</span> Beginnings</a>
+
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="">Contact</a></li>
+            <div class="socials">
+                <li><a href="https://www.instagram.com/newbeginnings_co/" target="_blank"><i class='bx bxl-instagram'></i></a></li>
+                <li><a href="https://www.facebook.com/thenewbegininngs" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                <li><a href=""><i class='bx bxl-twitter'></i></a></li>
+            </div>
+
+        </ul>
+
+        <div class="nav-icons">
+            <a href="#"><i class='bx bx-search' ></i></a>
+            <a href="checkout.html"><i class='bx bx-shopping-bag'></i></a>
+            <span id="counter" class="js-cart-quantity">0</span>
+        </div>
+        
+    </header>
+
+
+    <section id="pro-details" class="pro-details js-order-summary">
+                   
+    </section>
+
+    
+    <div class="size-guide-table">
+
+        <h3>Size Chart</h3>
+        <table>
+            <tr>
+                <th>In Inches</th>
+                <th>Chest</th>
+                <th>Length</th>
+                <th>Sleeve</th>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>38</td>
+                <td>26</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>40</td>
+                <td>27</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>42</td>
+                <td>28</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>XL</td>
+                <td>44</td>
+                <td>29</td>
+                <td>8.5</td>
+            </tr>
+            <tr>
+                <td>XXL</td>
+                <td>48</td>
+                <td>30</td>
+                <td>9</td>
+            </tr>
+        </table>
+    </div>
+       
+   
+    <div class="container-footer">
+            <!-- <p>Step into a world of style and possibilities with New Beginnings – Your Fashion Destination.</p> -->
+            <div class="socials-footer">
+                <li><a href="https://www.instagram.com/newbeginnings_co/" target="_blank"><i class='bx bxl-instagram'></i></a></li>
+                <li><a href="https://www.facebook.com/thenewbegininngs" target="_blank"><i class='bx bxl-facebook'></i></a></li>
+                <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
+            </div>
+            <div class="bottom-footer">
+                <p>Copyright &copy;2023: New Beginnings. </p>
+            </div>
+    </div>
+    
+
+    <script src="cart.js"></script>
+    <script src="products.js"></script>
+    <script src="newbeginnings.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+
+        let displayProductsHTML = '';
+
+        const productData = localStorage.getItem('productId');
+
+        const product = JSON.parse(productData);
+
+        if (productData) {
+
+            // const product = JSON.parse(productData);
+
+            displayProductsHTML += `
+                    <div class="pro-image">
+                        <img src="${product.image}" class="image">
+                    </div>
+
+                <div class="single-prod-details">
+                    <h6>Home / T-Shirt</h6>
+                    <h3>${product.name}</h3>
+                    <h2>₱${product.pricePeso}</h2>
+                    <label>Size</label>
+                    <select>
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                        <option>XL</option>
+                        <option>XXL</option>
+                        <option>XXXL</option>
+                    </select>
+                    <label>Quantity</label>
+                    <input type="number" value="1">
+                    <button class="add-to-cart js-add-to-cart" data-product-id="${product.id}">Add to Cart</button>
+                    <h4>Product Details</h4>
+                    <span>${product.description}</span>
+                </div>
+            `;
+        }
+
+        document.querySelector('.js-order-summary').innerHTML = displayProductsHTML;
+
+
+
+        document.querySelectorAll('.js-add-to-cart').forEach((a) => {
+        a.addEventListener('click', () => {
+        const productId = a.dataset.productId; 
+
+        addToCart(productId);
+        updateCartQuantity(); 
+        console.log(productId);
+         
+    });
+});
+
+        
+     </script>
+    
+</body>
+</html>
