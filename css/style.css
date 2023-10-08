@@ -369,6 +369,16 @@ header.sticky .nav-icons i{
     transform: scale(1.1);
 }
 
+.row .showToast{
+    font-size: 15px;
+    color: green;
+    position: absolute;
+    bottom: 30px;
+    right: 80px;
+    font-weight: 500;
+    display: none;
+}
+
 
 /* about us section */
 .about-container{
