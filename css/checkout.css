@@ -388,6 +388,7 @@ header.sticky .nav-icons i{
     }
     .nav-list.open{
         left: 0;
+        z-index: 1000;
     }
     .bx-x:before{
         color: black;
