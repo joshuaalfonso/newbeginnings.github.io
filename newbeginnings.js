@@ -19,6 +19,7 @@ products.forEach((product) =>{
                 <h6>₱${product.pricePeso}</h6>
             </div>        
             <button class="add-to-cart js-add-to-cart" data-product-id="${product.id}"><i class='bx bx-cart-alt'></i></button>
+            <div class="showToast" data-product-id="${product.id}"><i class='bx bxs-check-circle'></i><span>Added</span></div>
         </div>
     `;
 });
@@ -65,6 +66,17 @@ function updateCartQuantity() {
         addToCart(productId);
         updateCartQuantity(); 
         // console.log(productId);
+
+        const parentContainer = button.closest('.row');
+        const showToastDiv = parentContainer.querySelector('.showToast');
+
+        // Toggle the visibility of the showToast div
+        showToastDiv.style.display = 'block';
+
+        // Set a timer to hide the showToast div after a few seconds (e.g., 3 seconds)
+        setTimeout(() => {
+            showToastDiv.style.display = 'none';
+        }, 3000); // 3000 milliseconds (3 seconds)
          
     });
 });
