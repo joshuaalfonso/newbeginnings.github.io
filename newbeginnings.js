@@ -8,7 +8,7 @@ products.forEach((product) =>{
         <a class="display-product" data-product-id="${product.id}"><img src="${product.image}" alt=""></a> 
             <div class="p-details">
                 <span>Clothing</span>
-                <h3>${product.name}</h3>
+                <div class="product-name"> <h3>${product.name}</h3> </div>
                 <div class="stars">
                     <i class='bx bxs-star'></i>
                     <i class='bx bxs-star'></i>
