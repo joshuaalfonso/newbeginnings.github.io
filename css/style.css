@@ -320,11 +320,13 @@ header.sticky .nav-icons i{
     transform: scale(1.1);
 }
 
-
 .p-details span{
     font-size: 9px;
     color: #465b52;
+}
 
+.p-details .product-name{
+    height: 40px;
 }
 
 .p-details h3{
